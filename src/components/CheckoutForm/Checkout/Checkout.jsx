@@ -60,10 +60,9 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
   let Confirmation = () =>
     order.costumer ? (
       <div>
-        ­
         <div>
           <Typography variant="h5">
-            Thank you for your purchase, {order.costumer.firstname}{" "}
+            Thank you for your purchase, {order.costumer.firstname}
             {order.costumer.lastname}
           </Typography>
           <Divider className={classes.divider} />
@@ -78,7 +77,6 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
       </div>
     ) : isFinished ? (
       <div>
-        ­
         <div>
           <Typography variant="h5">Thank you for your purchase</Typography>
           <Divider className={classes.divider} />
