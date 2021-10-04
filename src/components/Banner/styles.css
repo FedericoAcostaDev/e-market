@@ -5,6 +5,7 @@
   align-items: center;
   background-color: #d8e9f0;
   background-image: linear-gradient(to bottom right, #d8e9f0, #212121);
+  border-radius: 4px;
 }
 
 .banner > div > div {
