@@ -3,17 +3,15 @@ import "./styles.css";
 
 const SelectCategory = ({ onChange, selectedCategory, categories }) => {
   return (
-    <Paper margin="10px">
-      <FormControl className="formControl">
-        <Select value={selectedCategory.id} onChange={onChange}>
-          {categories.map((category) => (
-            <MenuItem key={category.id} value={category.id}>
-              {category.name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </Paper>
+    <FormControl className="formControl">
+      <Select value={selectedCategory.id} onChange={onChange}>
+        {categories.map((category) => (
+          <MenuItem key={category.id} value={category.id}>
+            {category.name}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   );
 };
 

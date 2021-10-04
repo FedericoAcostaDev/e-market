@@ -120,6 +120,12 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
       <CssBaseline />
       <div className={classes.toolbar} />
       <main className={classes.layout}>
+        <Paper>
+          <Typography variant="subtitle1" align="center">
+            No real purchase will be made, although we recomend filling the card
+            numbers with 4's and 2's for testing the payment
+          </Typography>
+        </Paper>
         <Paper className={classes.paper}>
           <Typography variant="h4" align="center">
             Checkout
