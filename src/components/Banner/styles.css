@@ -4,8 +4,8 @@
   height: 100vh;
   display: flex;
   align-items: center;
-  background-color: #21262d;
-  background-image: linear-gradient(to bottom right, #121212, #3d4a5d);
+  background-color: #d8e9f0;
+  background-image: linear-gradient(to bottom right, #d8e9f0, #212121);
 }
 
 .banner > div > div {
