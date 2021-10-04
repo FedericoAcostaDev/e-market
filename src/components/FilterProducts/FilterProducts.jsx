@@ -90,18 +90,16 @@ const FilterProduct = ({
           </IconButton>
         </Paper>
         {resultMessage && <p className="result-message">{resultMessage}</p>}
-        );
-        {searchResult.length && (
-          <div>
-            <Grid container spacing={4}>
-              {searchResult.map((product) => (
-                <Grid key={product.id} item xs={12} sm={6} md={4}>
-                  <Product product={product} addProduct={addProduct} />
-                </Grid>
-              ))}
-            </Grid>
-          </div>
-        )}
+
+        <div>
+          <Grid container spacing={4}>
+            {searchResult.map((product) => (
+              <Grid key={product.id} item xs={12} sm={6} md={4}>
+                <Product product={product} addProduct={addProduct} />
+              </Grid>
+            ))}
+          </Grid>
+        </div>
       </Container>
     </div>
   );

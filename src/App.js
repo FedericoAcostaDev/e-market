@@ -12,7 +12,6 @@ const App = () => {
   const fetchProducts = async () => {
     const { data: products } = await commerce.products.list(); //this return a promise
     const { data: categoriesData } = await commerce.categories.list(); //this return a promise
-    console.log({ products });
 
     const productsPerCategory = categoriesData.reduce((acc, category) => {
       return [
