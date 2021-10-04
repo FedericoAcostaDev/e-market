@@ -4,12 +4,14 @@ import Banner from "../Banner/Banner";
 
 import Product from "./Product/Product";
 import useStyles from "./styles";
+import FilterProduct from "../FilterProducts/FilterProducts";
 
 const Products = ({ categories, onAddToCart }) => {
   const classes = useStyles();
 
   return (
     <main className={classes.content}>
+      <FilterProduct categories={categories} />
       <Banner />
       <div id="products">
         {categories.map((category) => {
