@@ -10,52 +10,53 @@ import { ReactComponent as RightArrow } from "../../assets/rightArrow.svg";
 
 const Slideshow = () => {
   return (
-    <MainContainer>
-      <SlideshowContainer>
-        <p>Feastured Products</p>
-        <Slide>
-          <a href="https://www.falconmaters.com">
-            <img src={img1} alt="" />
-          </a>
-          <SlideText>
-            <p>15% discount in technology</p>
-          </SlideText>
-        </Slide>
-        <Slide>
-          <a href="https://www.falconmaters.com">
-            <img src={img2} alt="" />
-          </a>
-          <SlideText>
-            <p>15% discount in technology</p>
-          </SlideText>
-        </Slide>
-        <Slide>
-          <a href="https://www.falconmaters.com">
-            <img src={img3} alt="" />
-          </a>
-          <SlideText>
-            <p>15% discount in technology</p>
-          </SlideText>
-        </Slide>
-        <Slide>
-          <a href="https://www.falconmaters.com">
-            <img src={img4} alt="" />
-          </a>
-          <SlideText>
-            <p>15% discount in technology</p>
-          </SlideText>
-        </Slide>
-      </SlideshowContainer>
-
-      <Controls>
-        <buttons>
-          <LeftArrow />
-        </buttons>
-        <buttons>
-          <RightArrow />
-        </buttons>
-      </Controls>
-    </MainContainer>
+    <div>
+      <p>Featured Products</p>
+      <MainContainer>
+        <SlideshowContainer>
+          <Slide>
+            <a href="https://www.falconmaters.com">
+              <img src={img1} alt="" />
+            </a>
+            <SlideText>
+              <p>15% discount in technology</p>
+            </SlideText>
+          </Slide>
+          <Slide>
+            <a href="https://www.falconmaters.com">
+              <img src={img2} alt="" />
+            </a>
+            <SlideText>
+              <p>15% discount in technology</p>
+            </SlideText>
+          </Slide>
+          <Slide>
+            <a href="https://www.falconmaters.com">
+              <img src={img3} alt="" />
+            </a>
+            <SlideText>
+              <p>15% discount in technology</p>
+            </SlideText>
+          </Slide>
+          <Slide>
+            <a href="https://www.falconmaters.com">
+              <img src={img4} alt="" />
+            </a>
+            <SlideText>
+              <p>15% discount in technology</p>
+            </SlideText>
+          </Slide>
+        </SlideshowContainer>
+        <Controls>
+          <Buttons>
+            <LeftArrow />
+          </Buttons>
+          <Buttons right>
+            <RightArrow />
+          </Buttons>
+        </Controls>
+      </MainContainer>
+    </div>
   );
 };
 
@@ -108,8 +109,31 @@ const Controls = styled.div`
   position: absolute;
   top: 0;
   z-index: 20;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 `;
 
-const buttons = styled.button``;
+const Buttons = styled.button`
+  pointer-events: all;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  width: 50px;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  transition: 0.3s ease all;
+
+  path {
+    filter: ${(props) =>
+      props.right
+        ? "drop-shadow(-2px 0px 0px #fff)"
+        : "drop-shadow(2px 0px 0px #fff)"};
+  }
+
+  ${(props) => (props.right ? "right: 0" : "left: 0")}
+`;
 
 export default Slideshow;
