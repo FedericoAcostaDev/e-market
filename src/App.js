@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { commerce } from "./lib/commerce";
 import { Paper } from "@material-ui/core";
+import Slideshow from "./components/Slideshow/Slideshow";
 
-import {
-  Products,
-  Navbar,
-  Cart,
-  Checkout,
-  Footer,
-  Slideshow,
-} from "./components";
+import { Products, Navbar, Cart, Checkout, Footer } from "./components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App = () => {
@@ -95,7 +89,7 @@ const App = () => {
         <Switch>
           <Paper>
             <Route exact path="/">
-              ­
+              <Slideshow />
               <Products categories={categories} onAddToCart={handleAddToCart} />
             </Route>
             <Route exact path="/cart">

@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import "./Styles.css";
+import { Link } from "@material-ui/core";
 import styled from "styled-components";
 import img1 from "../../assets/1.jpg";
 import img2 from "../../assets/2.jpg";
@@ -12,7 +13,6 @@ const Slideshow = () => {
   const slideshow = useRef(null);
   const intervalSlideshow = useRef(null);
   const NextSlide = () => {
-    console.log("next");
     //check for elements
     if (slideshow.current.children.length > 0) {
       //geting the elements
