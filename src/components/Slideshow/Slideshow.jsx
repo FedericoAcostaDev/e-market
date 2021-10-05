@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./Styles.css";
 import styled from "styled-components";
 import img1 from "../../assets/1.jpg";
@@ -9,11 +9,60 @@ import { ReactComponent as LeftArrow } from "../../assets/leftArrow.svg";
 import { ReactComponent as RightArrow } from "../../assets/rightArrow.svg";
 
 const Slideshow = () => {
+  const slideshow = useRef(null);
+  const NextSlide = () => {
+    console.log("next");
+    //check for elements
+    if (slideshow.current.children.length > 0) {
+      //geting the elements
+      const firstElement = slideshow.current.children[0];
+      //transition effect
+      slideshow.current.style.transition = `300ms ease-out all`;
+
+      //obtain slide size
+      const slideSize = slideshow.current.children[0].offsetWidth;
+      //move slideshow
+      slideshow.current.style.transform = `translateX(-${slideSize}px)`;
+
+      //restart initial point
+      const restartPoint = () => {
+        slideshow.current.style.transition = "none";
+        slideshow.current.style.transform = `translateX(0)`;
+
+        //move the first slideshow to finish
+        slideshow.current.appendChild(firstElement);
+
+        slideshow.current.removeEventListener("transitionend", restartPoint);
+      };
+      //event listener finish animation
+      slideshow.current.addEventListener("transitionend", restartPoint);
+    }
+  };
+
+  const PastSlide = () => {
+    if (slideshow.current.children.length > 0) {
+      //obtain last element
+      const index = slideshow.current.children.length - 1;
+      const pastElement = slideshow.current.children[index];
+      slideshow.current.insertBefore(pastElement, slideshow.current.firstChild);
+
+      slideshow.current.style.transition = "none";
+
+      const slideSize = slideshow.current.children[0].offsetWidth;
+      slideshow.current.style.transform = `translateX(-${slideSize}px)`;
+
+      setTimeout(() => {
+        slideshow.current.style.transition = "300ms ease-out all";
+        slideshow.current.style.transform = `translateX(0)`;
+      }, 30);
+    }
+  };
+
   return (
     <div>
       <p>Featured Products</p>
       <MainContainer>
-        <SlideshowContainer>
+        <SlideshowContainer ref={slideshow}>
           <Slide>
             <a href="https://www.falconmaters.com">
               <img src={img1} alt="" />
@@ -48,10 +97,10 @@ const Slideshow = () => {
           </Slide>
         </SlideshowContainer>
         <Controls>
-          <Buttons>
+          <Buttons onClick={PastSlide}>
             <LeftArrow />
           </Buttons>
-          <Buttons right>
+          <Buttons right onClick={NextSlide}>
             <RightArrow />
           </Buttons>
         </Controls>
