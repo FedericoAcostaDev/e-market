@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import "./Styles.css";
 import styled from "styled-components";
 import img1 from "../../assets/1.jpg";
@@ -10,6 +10,7 @@ import { ReactComponent as RightArrow } from "../../assets/rightArrow.svg";
 
 const Slideshow = () => {
   const slideshow = useRef(null);
+  const intervalSlideshow = useRef(null);
   const NextSlide = () => {
     console.log("next");
     //check for elements
@@ -57,6 +58,22 @@ const Slideshow = () => {
       }, 30);
     }
   };
+
+  useEffect(() => {
+    intervalSlideshow.current = setInterval(() => {
+      NextSlide();
+    }, 5000);
+    //delet intervals on hover
+    slideshow.current.addEventListener("mouseenter", () => {
+      clearInterval(intervalSlideshow.current);
+    });
+    //restart when not hover
+    slideshow.current.addEventListener("mouseleave", () => {
+      intervalSlideshow.current = setInterval(() => {
+        NextSlide();
+      }, 5000);
+    });
+  }, []);
 
   return (
     <div>
