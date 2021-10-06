@@ -1,4 +1,4 @@
-import { FormControl, Paper, Select, MenuItem } from "@material-ui/core";
+import { FormControl, Select, MenuItem } from "@material-ui/core";
 import "./styles.css";
 
 const SelectCategory = ({ onChange, selectedCategory, categories }) => {

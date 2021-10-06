@@ -4,7 +4,6 @@ import {
   Select,
   MenuItem,
   Button,
-  Paper,
   Grid,
   Typography,
 } from "@material-ui/core";
@@ -70,7 +69,7 @@ const AdressForm = ({ checkoutToken, next }) => {
 
   useEffect(() => {
     fetchShippingCountries(checkoutToken.id);
-  }, []);
+  }, [checkoutToken.id]);
 
   useEffect(() => {
     if (shippingCountry) fetchSubdivisions(shippingCountry);
@@ -83,7 +82,7 @@ const AdressForm = ({ checkoutToken, next }) => {
         shippingCountry,
         shippingSubdivision
       );
-  }, [shippingSubdivision]);
+  }, [checkoutToken.id, shippingCountry, shippingSubdivision]);
 
   return (
     <div>

@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from "react";
 import "./Styles.css";
-import { Link } from "@material-ui/core";
 import styled from "styled-components";
 import img1 from "../../assets/1.jpg";
 import img2 from "../../assets/2.jpg";
@@ -126,12 +125,12 @@ const Slideshow = () => {
   );
 };
 
-const Title = styled.p`
+/*{const Title = styled.p`
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 10px;
-`;
+`; }*/
 
 const MainContainer = styled.div`
   position: relative;
