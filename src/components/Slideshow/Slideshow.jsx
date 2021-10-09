@@ -135,6 +135,7 @@ const Slideshow = () => {
 
 const MainContainer = styled.div`
   position: relative;
+  overflow: hidden;
 `;
 
 const SlideshowContainer = styled.div`
@@ -144,7 +145,7 @@ const SlideshowContainer = styled.div`
 
 const Slide = styled.div`
   min-width: 100%;
-  overflow: hidden;
+
   transition: 0.3s ease all;
   z-index: 10;
   max-height: 500px;
