@@ -2,6 +2,7 @@ import React from "react";
 import { Grid, Container, Typography } from "@material-ui/core";
 import FilterProduct from "../FilterProducts/FilterProducts";
 import Product from "./Product/Product";
+import Slideshow from "../Slideshow/Slideshow";
 import useStyles from "./styles";
 
 const Products = ({ categories, onAddToCart, addProduct }) => {
@@ -17,6 +18,7 @@ const Products = ({ categories, onAddToCart, addProduct }) => {
         searchResult={searchResult}
         setSearchResult={setSearchResult}
       />
+      <Slideshow />
       {!searchResult.length && (
         <div id="products">
           {categories.map((category) => {
