@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import "./Styles.css";
 import styled from "styled-components";
+import { Box } from "@material-ui/core";
 import img1 from "../../assets/1.jpg";
 import img2 from "../../assets/2.jpg";
 import img3 from "../../assets/3.jpg";
@@ -75,7 +76,7 @@ const Slideshow = () => {
   }, []);
 
   return (
-    <div>
+    <Box marginTop="70px">
       <p>Featured Products</p>
       <MainContainer>
         <SlideshowContainer ref={slideshow}>
@@ -121,7 +122,7 @@ const Slideshow = () => {
           </Buttons>
         </Controls>
       </MainContainer>
-    </div>
+    </Box>
   );
 };
 
