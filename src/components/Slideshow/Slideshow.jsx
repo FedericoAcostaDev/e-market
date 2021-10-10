@@ -76,7 +76,7 @@ const Slideshow = () => {
   }, []);
 
   return (
-    <Box marginTop="70px">
+    <Box marginTop="40px">
       <p>Featured Products</p>
       <MainContainer>
         <SlideshowContainer ref={slideshow}>
